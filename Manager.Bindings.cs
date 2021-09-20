@@ -4,10 +4,14 @@ namespace Custodia
 {
 	public static partial class Manager
 	{
-		private static bool CanPlayerJoin(Client cl) =>
-			true;
+		private static void CanPlayerJoin(Game.CustodiaEventArgs eArgs)
+		{
+			
+		}
 		
-		private static bool CanPlayerSpeak(Client cl) =>
-			true;
+		private static void CanPlayerSpeak(Game.CustodiaEventArgs eArgs)
+		{
+			
+		}
 	}
 }
