@@ -23,7 +23,7 @@ namespace Custodia
 		/// should not be.
 		/// </summary>
 		/// <see cref="ClientJoined" />
-		public static event Action<CustodiaEventArgs> OnClientJoined;
+		public static event Action<CustodiaEventData> OnClientJoined;
 
 		/// <summary>
 		/// Invoked to determine whether or not a player's voice chat should
@@ -31,7 +31,7 @@ namespace Custodia
 		/// voice should be blocked.
 		/// </summary>
 		/// <see cref="CanHearPlayerVoice" />
-		public static event Action<CustodiaEventArgs> OnCanHearPlayerVoice;
+		public static event Action<CustodiaEventData> OnCanHearPlayerVoice;
 
 		/****************
 		*    EVENTS     *
@@ -56,12 +56,12 @@ namespace Custodia
 		public override bool CanHearPlayerVoice(Client speaker, Client listener) =>
 			(!CheckRestrictedEvents(speaker, OnCanHearPlayerVoice) ?? true) && base.CanHearPlayerVoice(speaker, listener);
 		
-		protected virtual bool? CheckRestrictedEvents(Client client, Action<CustodiaEventArgs> action)
+		protected virtual bool? CheckRestrictedEvents(Client client, Action<CustodiaEventData> action)
 		{
-			CustodiaEventArgs eArgs = new() { Client = client };
-			action?.Invoke(eArgs);
+			CustodiaEventData eData = new() { Client = client };
+			action?.Invoke(eData);
 
-			return eArgs.Restrict;
+			return eData.Restrict;
 		}
 	}
 }
