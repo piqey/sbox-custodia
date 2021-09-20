@@ -7,11 +7,18 @@ namespace Custodia
 	public class CommandAttribute : LibraryAttribute
 	{
 		public string CommandText { get; }
+		public string Permission { get; }
 
-		public CommandAttribute(string name) : base(name) =>
+		public CommandAttribute(string name, string permission = "") : base(name)
+		{
 			CommandText = name;
+			Permission = permission;
+		}
 
-		public CommandAttribute(string name, string command) : base(name) =>
+		public CommandAttribute(string name, string command, string permission = "") : base(name)
+		{
 			CommandText = command;
+			Permission = permission;
+		}
 	}
 }
