@@ -7,9 +7,9 @@ namespace Custodia.Commands
 		#nullable enable
 
 		[Command("ban", "player.ban", Description = "Bans a player from the game by name or SteamID.")]
-		public virtual void BanPlayer(string id, string durationText, string? notes)
+		public virtual void BanPlayer(string id, string durText, string? notes)
 		{
-			if (float.TryParse(durationText, out float duration) && CLib.FindPlayerFromText(id) is Client cl)
+			if (float.TryParse(durText, out float duration) && CLib.FindPlayerFromText(id) is Client cl && cl.IsValid())
 				Manager.Ban(cl, duration, notes);
 		}
 

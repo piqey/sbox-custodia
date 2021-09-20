@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+// using System.Collections.Generic;
 using System.Linq;
 using Sandbox;
 // using Steamworks;
@@ -8,16 +8,19 @@ namespace Custodia
 {
 	public static class CLib
 	{
-		public static long UnixNow => (long)(DateTime.UtcNow - DT).TotalSeconds;		
+		public static ulong UnixNow => TimeToUnix(DateTime.UtcNow);
 
-		private static DateTime DT { get; } = new(1970, 1, 1, 0, 0, 0);
+		public static ulong TimeToUnix(DateTime date) =>
+			(ulong)(date - DateTime.UnixEpoch).TotalSeconds;
 
 		public static Client FindPlayerFromText(string words)
 		{
-			if (ulong.TryParse(words, out ulong provided))
+			Client clFromName = Client.All.FirstOrDefault(c => c.Name.Contains(words));
+
+			if (!clFromName.IsValid() && ulong.TryParse(words, out ulong provided))
 				return Client.All.FirstOrDefault(c => c.SteamId == provided);
 			else
-				return Client.All.FirstOrDefault(c => c.Name.Contains(words));
+				return clFromName;
 		}
 	}
 }

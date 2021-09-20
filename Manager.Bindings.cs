@@ -1,3 +1,4 @@
+using System.Linq;
 using Sandbox;
 
 namespace Custodia
@@ -6,7 +7,11 @@ namespace Custodia
 	{
 		private static void CanPlayerJoin(Game.CustodiaEventData eData)
 		{
-
+			bool clientMatch = Bans.Where(b => eData.Client.SteamId == b.SteamId)
+				.Any();
+			
+			if (clientMatch)
+				eData.Restrict = true;
 		}
 		
 		private static void CanPlayerSpeak(Game.CustodiaEventData eData)
