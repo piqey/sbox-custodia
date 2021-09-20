@@ -47,16 +47,16 @@ namespace Custodia
 
 		public override void ClientJoined(Client cl)
 		{
-			if (CheckRestrictedEvents(cl, OnClientJoined) ?? false)
+			if (CheckRestrictedEvents(cl, OnClientJoined))
 				cl.Kick();
 			else
 				base.ClientJoined(cl);
 		}
 
 		public override bool CanHearPlayerVoice(Client speaker, Client listener) =>
-			(!CheckRestrictedEvents(speaker, OnCanHearPlayerVoice) ?? true) && base.CanHearPlayerVoice(speaker, listener);
+			!CheckRestrictedEvents(speaker, OnCanHearPlayerVoice) && base.CanHearPlayerVoice(speaker, listener);
 		
-		protected virtual bool? CheckRestrictedEvents(Client client, Action<CustodiaEventData> action)
+		protected virtual bool CheckRestrictedEvents(Client client, Action<CustodiaEventData> action)
 		{
 			CustodiaEventData eData = new() { Client = client };
 			action?.Invoke(eData);
