@@ -1,4 +1,4 @@
-# Custodia
+# ![custodia](https://user-images.githubusercontent.com/12129071/134185493-55f2a6f6-f71a-462f-99e6-0a0ed1c3966c.png)
 
 ***As of 20 Sept. 2021, Custodia is nowhere near complete.***
 
