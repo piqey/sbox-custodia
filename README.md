@@ -4,6 +4,12 @@
 
 Custodia aims to be a robust administration system add-in for any of your s&amp;box projects. It comes packaged ready for use without any extra baggage you don't want.
 
+<p align="center">
+  <img src="https://img.shields.io/github/last-commit/piqey/sbox-custodia" />
+  <img src="https://img.shields.io/github/stars/piqey/sbox-custodia" />
+  <img src="https://img.shields.io/github/license/piqey/sbox-custodia" />
+</p>
+
 ## Installation
 
 To include this in your project, create a [git submodule](https://git-scm.com/docs/git-submodule) in your repository. The command you issue in your git repository's root folder should look something like this: `git submodule add https://github.com/piqey/sbox-custodia code/Custodia/` (your capitalization of the letter "C" in "code" may vary). After taking care of adding the submodule, it can later be updated via the use of the `git submodule update` command.
