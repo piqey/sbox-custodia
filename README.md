@@ -3,11 +3,11 @@
 
 However, I, piqey (aka John Connor), do plan to return to this project, though the timing of this is uncertain. This could be today, tomorrow, or months from now, but I feel as though it will be one of the former, i.e., very soon. This would be the first milestone in my return to programming in s&box, something that has recently and spontaneously regained my interest for no discernable reason.
 
-Until then, I am archiving this repository for the sake of tidiness (and my own sanity by consequence).
+Until then, I am archiving this repository for the sake of cleanliness (and my own sanity by consequence).
 
 # ![custodia](https://user-images.githubusercontent.com/12129071/134185493-55f2a6f6-f71a-462f-99e6-0a0ed1c3966c.png)
 
-Custodia aims to be a robust administration system add-in for any of your s&amp;box projects. It comes packaged ready for use without any extra baggage you don't want.
+Custodia aims to be a robust and modular add-in administration framework for any of your s&amp;box projects whilst maintaining a relatively lightweight form factor that attempts to avoid giving any s&amp;devs unnecessary conniptions. It comes prepackaged, ready for use and structured with the streamlining of new updates in mind. I also intend to organize Custodia in a manner such that any repositories configured to automatically pull submodule updates will be able to do so without any complications.
 
 <p align="center">
   <img src="https://img.shields.io/github/last-commit/piqey/sbox-custodia" />
