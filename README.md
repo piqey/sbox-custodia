@@ -1,6 +1,11 @@
-# ![custodia](https://user-images.githubusercontent.com/12129071/134185493-55f2a6f6-f71a-462f-99e6-0a0ed1c3966c.png)
+## UPDATE: 5 June 2022
+***Custodia is nowhere near complete (and hasn't been contributed to since last September).***
 
-***As of 20 Sept. 2021, Custodia is nowhere near complete.***
+However, I, piqey (aka John Connor), do plan to return to this project, though the timing of this is uncertain. This could be today, tomorrow, or months from now, but I feel as though it will be one of the former, i.e., very soon. This would be the first milestone in my return to programming in s&box, something that has recently and spontaneously regained my interest for no discernable reason.
+
+Until then, I am archiving this repository for the sake of tidiness (and my own sanity by consequence).
+
+# ![custodia](https://user-images.githubusercontent.com/12129071/134185493-55f2a6f6-f71a-462f-99e6-0a0ed1c3966c.png)
 
 Custodia aims to be a robust administration system add-in for any of your s&amp;box projects. It comes packaged ready for use without any extra baggage you don't want.
 
@@ -12,9 +17,9 @@ Custodia aims to be a robust administration system add-in for any of your s&amp;
 
 ## Installation
 
-To include this in your project, create a [git submodule](https://git-scm.com/docs/git-submodule) in your repository. The command you issue in your git repository's root folder should look something like this: `git submodule add https://github.com/piqey/sbox-custodia code/Custodia/` (your capitalization of the letter "C" in "code" may vary). After taking care of adding the submodule, it can later be updated via the use of the `git submodule update` command.
+To include this in your project, create a [git submodule](https://git-scm.com/docs/git-submodule) in your repository. The command you issue in your git repository's root folder should look something like this: `git submodule add https://github.com/piqey/sbox-custodia/code/Custodia/` (your capitalization of the letter "C" in "code" may vary). After taking care of adding the submodule, it can later be updated via the use of the `git submodule update` command.
 
-Once you've taken care of that, the only required modification to make use of Custodia's features is that you derive your game class from `Custodia.Game` (and ensure that you are calling its base methods in your overrides).
+Once you've taken care of that, the only required modification to make use of Custodia's features is that you derive your Game subclass from `Custodia.Game` (and ensure that you are calling its base methods in your overrides).
 
 ## Guide
 
