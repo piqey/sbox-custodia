@@ -7,7 +7,7 @@ namespace Custodia.Commands
 		[Command("ban", "player.ban", Description = "Bans a player from the game by name or SteamID.")]
 		public static void BanPlayer(string id, string durText, string notes)
 		{
-			if (long.TryParse(durText, out long duration) && CLib.FindPlayerFromText(id, out Client cl) && cl.IsValid())
+			if (long.TryParse(durText, out long duration) && CLib.TryFindPlayerFromText(id, out Client cl) && cl.IsValid())
 				Manager.Ban(cl, duration, notes);
 		}
 
@@ -21,7 +21,7 @@ namespace Custodia.Commands
 		[Command("mute", "player.mute", Description = "Mutes a player by name or SteamID, preventing them from using text chat or VoIP.")]
 		public static void MutePlayer(string id, string durText, string notes)
 		{
-			if (long.TryParse(durText, out long duration) && CLib.FindPlayerFromText(id, out Client cl) && cl.IsValid())
+			if (long.TryParse(durText, out long duration) && CLib.TryFindPlayerFromText(id, out Client cl) && cl.IsValid())
 				Manager.Ban(cl, duration, notes);
 		}
 

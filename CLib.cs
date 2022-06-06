@@ -31,7 +31,7 @@ namespace Custodia
 		* MISC. UTILITIES *
 		*******************/
 
-		public static bool FindPlayerFromText(string words, out Client cl)
+		public static bool TryFindPlayerFromText(string words, out Client cl)
 		{
 			if (long.TryParse(words, out long provided))
 				cl = Client.All.FirstOrDefault(c => c.PlayerId == provided);
