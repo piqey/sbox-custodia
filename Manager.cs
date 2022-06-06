@@ -2,7 +2,7 @@ namespace Custodia
 {
 	/// <summary>
 	/// The heart of Custodia. Manages the saving and loading of logs, ranks, permissions, bans,
-	/// mutes, etc.
+	/// mutes, etc., as well as manages commands.
 	/// </summary>
 	public static partial class Manager
 	{
