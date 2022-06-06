@@ -1,26 +1,44 @@
 using System;
-// using System.Collections.Generic;
 using System.Linq;
 using Sandbox;
-// using Steamworks;
 
 namespace Custodia
 {
 	public static class CLib
 	{
-		public static ulong UnixNow => TimeToUnix(DateTime.UtcNow);
+		/*****************
+		* TIME UTILITIES *
+		******************/
 
-		public static ulong TimeToUnix(DateTime date) =>
-			(ulong)(date - DateTime.UnixEpoch).TotalSeconds;
+		/// <summary>
+		/// The current Unix timestamp (seconds since 01/01/1970 00:00).
+		/// </summary>
+		public static long UnixNow => DateTimeOffset.Now.ToUnixTimeSeconds();
 
-		public static Client FindPlayerFromText(string words)
+		/// <summary>
+		/// Converts a Unix timestamp into a <see cref="DateTime" /> object.
+		/// </summary>
+		/// <param name="unix">The Unix timestamp to convert.</param>
+		/// <param name="local">If <see langword="true" />, returns local time rather than UTC.</param>
+		/// <returns>The <see cref="DateTime" /> equivalent of the provided Unix time.</returns>
+		public static DateTime UnixToDateTime(long unix, bool local = false)
 		{
-			Client clFromName = Client.All.FirstOrDefault(c => c.Name.Contains(words));
+			DateTimeOffset dto = DateTimeOffset.FromUnixTimeSeconds(unix);
+			return local ? dto.LocalDateTime : dto.UtcDateTime;
+		}
 
-			if (!clFromName.IsValid() && ulong.TryParse(words, out ulong provided))
-				return Client.All.FirstOrDefault(c => c.SteamId == provided);
+		/******************
+		* MISC. UTILITIES *
+		*******************/
+
+		public static bool FindPlayerFromText(string words, out Client cl)
+		{
+			if (long.TryParse(words, out long provided))
+				cl = Client.All.FirstOrDefault(c => c.PlayerId == provided);
 			else
-				return clFromName;
+				cl = Client.All.FirstOrDefault(c => c.Name.Contains(words));
+
+			return cl.IsValid();
 		}
 	}
 }

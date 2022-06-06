@@ -2,17 +2,34 @@ using Sandbox;
 
 namespace Custodia.Commands
 {
-	public class PlayerManagement
+	public static class PlayerManagement
 	{
-		#nullable enable
-
 		[Command("ban", "player.ban", Description = "Bans a player from the game by name or SteamID.")]
-		public virtual void BanPlayer(string id, string durText, string? notes)
+		public static void BanPlayer(string id, string durText, string notes)
 		{
-			if (float.TryParse(durText, out float duration) && CLib.FindPlayerFromText(id) is Client cl && cl.IsValid())
+			if (long.TryParse(durText, out long duration) && CLib.FindPlayerFromText(id, out Client cl) && cl.IsValid())
 				Manager.Ban(cl, duration, notes);
 		}
 
-		#nullable disable
+		[Command("unban", "player.ban", Description = "Unbans a previously banned player by SteamID.")]
+		public static void UnbanPlayer(string id)
+		{
+			if (long.TryParse(id, out long plyId))
+				Manager.Unban(plyId);
+		}
+
+		[Command("mute", "player.mute", Description = "Mutes a player by name or SteamID, preventing them from using text chat or VoIP.")]
+		public static void MutePlayer(string id, string durText, string notes)
+		{
+			if (long.TryParse(durText, out long duration) && CLib.FindPlayerFromText(id, out Client cl) && cl.IsValid())
+				Manager.Ban(cl, duration, notes);
+		}
+
+		[Command("unmute", "player.mute", Description = "Unmutes a previously muted player by SteamID.")]
+		public static void UnmutePlayer(string id)
+		{
+			if (long.TryParse(id, out long plyId))
+				Manager.Unban(plyId);
+		}
 	}
 }
