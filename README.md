@@ -1,9 +1,11 @@
 ## UPDATE: 5 June 2022
-***Custodia is nowhere near complete (and hasn't been contributed to since last September).***
+***Custodia is nowhere near complete ~~(and hasn't been contributed to since last September)~~.***
 
-However, I, piqey (aka John Connor), do plan to return to this project, though the timing of this is uncertain. This could be today, tomorrow, or months from now, but I feel as though it will be one of the former, i.e., very soon. This would be the first milestone in my return to programming in s&box, something that has recently and spontaneously regained my interest for no discernable reason.
+~~However, I, piqey (aka John Connor), do plan to return to this project, though the timing of this is uncertain. This could be today, tomorrow, or months from now, but I feel as though it will be one of the former, i.e., very soon. This would be the first milestone in my return to programming in s&box, something that has recently and spontaneously regained my interest for no discernable reason.~~
 
-Until then, I am archiving this repository for the sake of cleanliness (and my own sanity by consequence).
+~~Until then, I am archiving this repository for the sake of cleanliness (and my own sanity by consequence).~~
+
+I'm working on this again. We'll see where it goes.
 
 # ![custodia](https://user-images.githubusercontent.com/12129071/134185493-55f2a6f6-f71a-462f-99e6-0a0ed1c3966c.png)
 
