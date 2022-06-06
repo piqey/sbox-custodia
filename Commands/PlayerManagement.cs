@@ -9,13 +9,14 @@ namespace Custodia.Commands
 		{
 			if (long.TryParse(durText, out long duration) && CLib.TryFindPlayerFromText(id, out Client cl) && cl.IsValid())
 				Manager.Ban(cl, duration, notes);
+			else if (long.TryParse(id, out long plyId))
+				Manager.Ban(plyId, duration, notes);
 		}
 
 		[Command("unban", "player.ban", Description = "Unbans a previously banned player by SteamID.")]
-		public static void UnbanPlayer(string id)
+		public static void UnbanPlayer(long id)
 		{
-			if (long.TryParse(id, out long plyId))
-				Manager.Unban(plyId);
+			Manager.Unban(id);
 		}
 
 		[Command("mute", "player.mute", Description = "Mutes a player by name or SteamID, preventing them from using text chat or VoIP.")]
@@ -25,11 +26,13 @@ namespace Custodia.Commands
 				Manager.Ban(cl, duration, notes);
 		}
 
-		[Command("unmute", "player.mute", Description = "Unmutes a previously muted player by SteamID.")]
+		[Command("unmute", "player.mute", Description = "Unmutes a previously muted player by name or SteamID.")]
 		public static void UnmutePlayer(string id)
 		{
-			if (long.TryParse(id, out long plyId))
-				Manager.Unban(plyId);
+			if (CLib.TryFindPlayerFromText(id, out Client cl))
+				Manager.Unmute(cl);
+			else if (long.TryParse(id, out long plyId))
+				Manager.Unmute(plyId);
 		}
 	}
 }
